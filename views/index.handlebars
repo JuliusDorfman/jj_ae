@@ -1,46 +1,47 @@
 <div class="container">
-	<div class="row">
-		<div class="col-xs-12 text-center" id="top-bar">
-			<img src="/assets/images/burger.png" alt="burger" />
-			<h1> Eat-Da-Burger! </h1>
-		</div>
-		<div class="col-xs-6 text-center" class="task">
-			<div class="row">
-			  {{#each burger}}
-			  	{{#unless this.devoured}}
-				<div class="col-xs-9 text-center">
-					<pre>{{this.id}}. {{this.burger_name}}
-					</pre>
-				  		<!-- {{this.Date}} -->
-				</div>
-				<div class="col-xs-3 text-center">
-					<form method="POST" action="/moodmusic/update?_method=PUT" class="button-size">
-						<input input type="hidden" type="text" name="burger_id" value={{this.id}}><br>
-						<button type="submit" class="btn btn-default">Devour it!</button>
-					</form>
-				</div>
-				{{/unless}}
-			  {{/each}}
-			</div>
-		</div>
-		<div class="col-xs-6 text-center" class="task">
-			  {{#each burger}}
-			  	{{#if this.devoured}}
-			  		<input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}" readonly>
-				{{/if}}
-			  {{/each}}
-		</div>
-	</div>
+  <div class="row">
+    <div class="col-md-12">
+    	Test
+    	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span>
+ 			<span class="icon-bar"></span>
+            <span class="icon-bar"></span> <span class="icon-bar"></span>
+            </button> <a class="navbar-brand" href="#">moodmusic</a> 
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+
+                <li><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Sign-Up</button></li>
+                <li><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Stats</button>
+                   
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+  <div class="row">
+    <div class="col-12 headspace center">
+    	<!-- <h1>What Kind of Stuff Are You Into Lately?</h1> -->
+    <div class="col-12 headspace">
+    	<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">MusicNoteNoteGraphic</span>
+  <input type="text" class="form-control" placeholder="What Kind of Stuff Are You Into Lately?" aria-describedby="basic-addon1">
+</div>
+</div>
 </div>
 
-<div class="container">
-	<div class="row">
-		<div class="col-xs-12 text-center enter_section">
-			<form action="/moodmusic/create" method="POST">
-				<input type="text" class="form-control" name="burger_name" value="" id="enter_text">
-				<button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
-			</form>
-			<p>Enter a burger you want to eat Click the "Submit" button.</p>
-		</div>
-	</div>
-</div>
+ <div class="row">
+        <div class="col-md-6">
+        <iframe src="https://open.spotify.com/embed?uri=spotify:track:2TpxZ7JUBn3uw46aR7qd6V" width="100%" height="100%" frameborder="0" allowtransparency="true"></iframe>
+        </div>
+        <div class="col-md-6">
+          <img src="assets/images/craplogo.png" width="100%" height="100%">
+       </div>
+      </div>
+ <hr>
+      <footer>
+        <p>&copy; JJA&amp;E</p>
+      </footer>
+
