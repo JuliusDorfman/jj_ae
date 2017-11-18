@@ -17,15 +17,16 @@
 
 // Step 6: Utilized Sequelize ORM methods in place of the deleted ORM functions
 //         in burgers_controller.js
-
-var express = require("express");
-var bodyParser = require("body-parser");
-var methodOverride = require("method-override");
-
+var keys = require("./config/keys.js"); // Grab data from keys.js
+let express = require("express");
+let bodyParser = require("body-parser");
+let methodOverride = require("method-override");
+let passport = require('passport');
+const SpotifyStrategy = require('passport-spotify').Strategy;
 // bring in the models
-var db = require("./models");
+let db = require("./models");
 
-var app = express();
+let app = express();
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(__dirname + "/public"));
 
@@ -35,14 +36,14 @@ app.use(bodyParser.urlencoded({
 }));
 // override with POST having ?_method=DELETE
 app.use(methodOverride("_method"));
-var exphbs = require("express-handlebars");
+let exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({
   defaultLayout: "main"
 }));
 app.set("view engine", "handlebars");
 
-var routes = require("./controllers/moodmusic_controller.js");
+let routes = require("./controllers/moodmusic_controller.js");
 
 app.use("/", routes);
 app.use("/update", routes);
@@ -50,8 +51,22 @@ app.use("/create", routes);
 
 
 // listen on port 3000
-var port = process.env.PORT || 3000;
+let port = process.env.PORT || 3000;
 db.sequelize.sync().then(function() {
+
+console.log('clientID, clientSecret', keys.spotifyKeys.client_id, keys.spotifyKeys.client_secret);
+
+passport.use(new SpotifyStrategy({
+    clientID: keys.spotifyKeys.client_id,
+    clientSecret: keys.spotifyKeys.client_secret,
+    callbackURL: "http://localhost:3000/auth/spotify/callback"
+  },
+  function(accessToken, refreshToken, profile, done) {
+    User.findOrCreate({ spotifyId: profile.id }, function (err, user) {
+      return done(err, user);
+    });
+  }
+));
   app.listen(port);
 });
 
