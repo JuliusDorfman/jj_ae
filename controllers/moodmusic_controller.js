@@ -17,7 +17,7 @@ router.get("/moodmusic", function(req, res) {
   //console.log("hello world:", song);
 // console.log("Valence me:", spotifyRouter.body.valence);
 
-  db.Burger.findAll()
+  db.Song.findAll()
     .then(function(dbBurger) {
       console.log(dbBurger);
       var hbsObject = { burger: dbBurger };
