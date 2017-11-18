@@ -59,7 +59,7 @@ console.log('clientID, clientSecret', keys.spotifyKeys.client_id, keys.spotifyKe
 passport.use(new SpotifyStrategy({
     clientID: keys.spotifyKeys.client_id,
     clientSecret: keys.spotifyKeys.client_secret,
-    callbackURL: "http://localhost:3000/auth/spotify/callback"
+    callbackURL: "https://moodmusic1.herokuapp.com/auth/spotify/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     User.findOrCreate({ spotifyId: profile.id }, function (err, user) {

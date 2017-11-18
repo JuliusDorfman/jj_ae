@@ -15,7 +15,7 @@ router.get('/authorize', function(req,res) {
   console.log('Authorizing via spotify...');
   var URL = "https://accounts.spotify.com/authorize?"
           + "client_id=49359df6dc324aa0af4c4b5429f2d2b9"
-          + "&redirect_uri=https://moodmusic1.herokuapp.com/authenticating"
+          + "&redirect_uri=https://moodmusic1.herokuapp.com/auth/spotify/callback"
           + "&scope=user-read-private%20user-read-email"
           + "&response_type=token"
           + "&state=123";
