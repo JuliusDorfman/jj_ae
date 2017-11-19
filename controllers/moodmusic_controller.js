@@ -52,6 +52,7 @@ router.get("/moodmusic", function(req, res) {
   spotifyRouter.spotifyThisSong(req.query.song_name, function(cb) {
     console.log("Callback from spotify: ", cb);
   });
+
   //console.log("hello world:", song);
 // console.log("Valence me:", spotifyRouter.body.valence);
 
@@ -62,6 +63,12 @@ router.get("/moodmusic", function(req, res) {
       return res.render("index", hbsObject);
     });
 });
+
+router.get("/recentsong", function(req, res) {
+res.render("recentsong");
+
+});
+
 
 router.post("/moodmusic/create", function(req, res) {
   db.Burger.create({
