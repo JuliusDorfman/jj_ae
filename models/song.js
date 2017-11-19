@@ -6,9 +6,9 @@ module.exports = function(sequelize, DataTypes) {
     var Song = sequelize.define("Song", {
         id: { type: DataTypes.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true },
         song_name: { type: DataTypes.STRING },
-        valence: { type: DataTypes.INTEGER },
-        liveness: { type: DataTypes.INTEGER },
-        energy: { type: DataTypes.INTEGER },
+        valence: { type: DataTypes.FLOAT },
+        liveness: { type: DataTypes.FLOAT },
+        energy: { type: DataTypes.FLOAT },
         duration: { type: DataTypes.INTEGER }
     }, {
         classMethods: {
