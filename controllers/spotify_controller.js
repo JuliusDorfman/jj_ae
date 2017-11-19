@@ -17,7 +17,7 @@ var spotifyRouter = {
             }
             var firstResult = data.tracks.items[0];
             var songId = firstResult.id;
-            var oaToken = 'BQDHKhQ1eH_78OZ81yHiLk42NychAW8pwAX0YPE4K87moMsN4qKYPT5JnK5pc3ubeMzJYHLTmvQVfp5KkrtlEZvaGDJ2W5gMatJHN7t6djhG9jY8bFinPQzd3qU9XNqwkmth2gwwgwj8gHw4Xot6';
+            var oaToken = 'BQC8tNZ8MYuU6CzW3RN8_3WaiY2dBcmfiT3Ov456T0fwG2dx_bGZLoQr06SVoRh7TTYSTQ1RQzByeEOEfUBTWNisVLJVROnEz7MNi_j8P5GH850--rNYHAyFiNW2u2JY51-ozotAMP-Z19qO_jN6';
 
             var options = {
                 method: 'GET',
@@ -33,12 +33,16 @@ var spotifyRouter = {
             request(options, function(error, response, body) {
                 if (error) throw new Error(error);
 
-                console.log("Valence:", body);
+                console.log("Valence: ", body.valence);
+                console.log("Liveness: ", body.liveness);
+                console.log("Energy: ", body.energy);
                 console.log("SongId: ", songId);
+                console.log("Duration in ms: ", firstResult.duration_ms);
+                //Todo wrap callback into object - get help!
                 cb(body.valence);
             });
 
-            console.log(firstResult);
+            // console.log("Initial call Result:", firstResult);
             var trackInfo = "* Track Title: " + firstResult.name +
                 "* Artist(s): " + firstResult.album.artists[0].name +
                 "* Preview Link: " + firstResult.external_urls.spotify +
