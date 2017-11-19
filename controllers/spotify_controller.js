@@ -21,13 +21,14 @@ var spotifyRouter = {
             }
             var firstResult = data.tracks.items[0];
             var songId = firstResult.id;
+            var oaToken = 'BQAgKgsEfVqBuTNWXUJA4fwndLpFPmr2OFPuuQZtchJL-orpOzf4v_WvPEo2YbWfv_ZNG-47HW3iKHU791GSKg2WhjSnv3ryPUdktanCyepdlXoYjo_dh9Q1FAneOkuNpAHeKawwS5_6aH0cu1E4';
 
             var options = {
                 method: 'GET',
                 url: 'https://api.spotify.com/v1/audio-features/' + songId,
                 headers: {
                     'cache-control': 'no-cache',
-                    authorization: 'Bearer ' + 'BQAv1YmlQ1NW90Igg9WH9ypnzG5bOYVLwvIIbX6LpWwvPNzSc_gqcIsKwdQ83bfBiLVCXxn_kTBfOk4QMPnC68FmNKVzRLa0hqzPp0QyCEqKotUWbSO1Tzas7sqnsz7d_QjbtYRrabkVBqmtnNDV',
+                    authorization: 'Bearer ' + oaToken,
                     'content-type': 'application/json'
                 },
                 json: true
