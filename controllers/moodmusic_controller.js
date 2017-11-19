@@ -1,4 +1,3 @@
-
 var express = require("express");
 let passport = require('passport');
 var router = express.Router();
@@ -14,8 +13,8 @@ router.get("/", function(req, res) {
 router.get('/authorize', function(req,res) {
   console.log('Authorizing via spotify...');
   var URL = "https://accounts.spotify.com/authorize?"
-          + "client_id=49359df6dc324aa0af4c4b5429f2d2b9"
-          + "&redirect_uri=https://moodmusic1.herokuapp.com/auth/spotify/callback"
+          + "client_id=52b4253865e24076a3bbb8838d4ce261"
+          + "&redirect_uri=http://localhost:3000/callback"
           + "&scope=user-read-private%20user-read-email"
           + "&response_type=token"
           + "&state=123";

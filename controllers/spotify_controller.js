@@ -2,10 +2,6 @@ var keys = require("../config/keys.js"); // Grab data from keys.js
 var request = require("request"); // node package for making http requests
 var Spotify = require("node-spotify-api"); // node package that handles Spotify requests
 
-//Prompts for command line syntax
-// var action = process.argv[2];
-// var value = process.argv[3];
-// Then run a request to the Spotify API with the track title specified
 var spotify = new Spotify({
     id: keys.spotifyKeys.client_id,
     secret: keys.spotifyKeys.client_secret
@@ -21,7 +17,7 @@ var spotifyRouter = {
             }
             var firstResult = data.tracks.items[0];
             var songId = firstResult.id;
-            var oaToken = 'BQAgKgsEfVqBuTNWXUJA4fwndLpFPmr2OFPuuQZtchJL-orpOzf4v_WvPEo2YbWfv_ZNG-47HW3iKHU791GSKg2WhjSnv3ryPUdktanCyepdlXoYjo_dh9Q1FAneOkuNpAHeKawwS5_6aH0cu1E4';
+            var oaToken = 'BQDHKhQ1eH_78OZ81yHiLk42NychAW8pwAX0YPE4K87moMsN4qKYPT5JnK5pc3ubeMzJYHLTmvQVfp5KkrtlEZvaGDJ2W5gMatJHN7t6djhG9jY8bFinPQzd3qU9XNqwkmth2gwwgwj8gHw4Xot6';
 
             var options = {
                 method: 'GET',

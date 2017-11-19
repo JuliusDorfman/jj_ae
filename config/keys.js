@@ -1,4 +1,4 @@
 exports.spotifyKeys = {
-	client_id: '49359df6dc324aa0af4c4b5429f2d2b9',
-	client_secret: '46a9c0ae16cd41c79173fb9f7416bed6'
+	client_id: '52b4253865e24076a3bbb8838d4ce261',
+	client_secret: '783a365ecebe4cfcb9fed0e7f5d2f484'
 };
