@@ -34,6 +34,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({
   extended: false
 }));
+app.use(bodyParser.json());
 // override with POST having ?_method=DELETE
 app.use(methodOverride("_method"));
 let exphbs = require("express-handlebars");

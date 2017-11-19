@@ -49,7 +49,7 @@ router.get('/auth/spotify/callback',
   });
 
 router.get("/moodmusic", function(req, res) {
-  spotifyRouter.spotifyThisSong(trackName, function(cb) {
+  spotifyRouter.spotifyThisSong(req.query.song_name, function(cb) {
     console.log("Callback from spotify: ", cb);
   });
   //console.log("hello world:", song);
