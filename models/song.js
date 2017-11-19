@@ -8,7 +8,8 @@ module.exports = function(sequelize, DataTypes) {
         song_name: { type: DataTypes.STRING },
         valence: { type: DataTypes.INTEGER },
         liveliness: { type: DataTypes.INTEGER },
-        energy: { type: DataTypes.INTEGER }
+        energy: { type: DataTypes.INTEGER },
+        duration: { type: DataTypes.INTEGER }
     }, {
         classMethods: {
             associate: function(models) {
