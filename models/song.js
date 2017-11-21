@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
         id: { type: DataTypes.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true },
         song_name: { type: DataTypes.STRING },
         valence: { type: DataTypes.FLOAT },
-        liveness: { type: DataTypes.FLOAT },
+        liveliness: { type: DataTypes.FLOAT },
         energy: { type: DataTypes.FLOAT },
         duration: { type: DataTypes.INTEGER }
     }, {

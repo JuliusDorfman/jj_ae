@@ -34,7 +34,7 @@ var spotifyRouter = {
                 if (error) throw new Error(error);
 
                 console.log("Valence: ", body.valence);
-                console.log("Liveness: ", body.liveness);
+                console.log("Liveness: ", body.liveliness);
                 console.log("Energy: ", body.energy);
                 console.log("SongId: ", songId);
                 console.log("Duration in ms: ", firstResult.duration_ms);

@@ -1,44 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+<html lang="en">
 
 <head>
-    <title>moodmusic</title>
-    <meta charset="UTF-8">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-    <div id="myNavbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
+    <div class="container">
+        <!-- 
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
                 <a href="#" class="navbar-brand"><img src="/assets/images/moodmusic.png"></a>
+            </div> -->
+        <!--           <div class="navbar-collapse collapse">
+                 -->
+        <div id="myNavbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <div class="container">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#logInModal">Log In</button>
+                        </li>
+                        <li>
+                            <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#aboutModal">About</button>
+                        </li>
+                        <li>
+                            <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#statsModal">Stats</button>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right sidebyside">
-                    <li><a href="#header">home</a></li>
-                    <li><a href="#stats">stats</a></li>
-                    <li><a href="#about">about</a></li>
-                </ul>
+        </div>
+ 
+    <div class="modal fade" id="logInModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Log In:</h4>
+                </div>
+                <div class="modal-body">
+                    <button type="button" class="btn btn-danger btn-lg" id="Joe" </button>Log Joe In</button>
+                    <button type="button" class="btn btn-danger btn-lg" id="Julius" </button>Log Julius In</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="aboutModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">About MoodMusic</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Mood Music is a sick app yo.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="statsModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Stats</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row"> Test
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     {{{body}}}
     <hr>
-    <div class="container">
-        <footer>
-            <p>&copy; JJA&amp;E</p>
-        </footer>
+    <footer>
+        <p>&copy; JJA&amp;E</p>
+    </footer>
     </div>
 </body>
 
-</HTML>
+</html>

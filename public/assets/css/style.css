@@ -18,9 +18,43 @@ img {
 
 button {
   width: 100%;
-
 }
 
 .player {
   margin-top: 20px ;
 }
+
+body {
+  background-image: url(../images/redish.jpg);
+}
+
+.navbar-header {
+  background-color: yellow;
+}
+
+.restofNav {
+   background-color: yellow;
+}
+
+#Joe {
+  background-color: blue;
+}
+
+
+.btn {
+ color: white;
+ text-decoration: none;
+ padding: 5px 10px;
+ border-radius:3px;
+ font-family: 'Poiret One';
+ font-size:2em;
+
+}
+
+
+
+h1 {
+  font-family: 'Helvetica';
+  font-size:4em;
+}
+*/
