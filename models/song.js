@@ -6,6 +6,8 @@ module.exports = function(sequelize, DataTypes) {
     var Song = sequelize.define("Song", {
         id: { type: DataTypes.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true },
         song_name: { type: DataTypes.STRING },
+        artist: { type: DataTypes.STRING },
+        album: {type: DataTypes.STRING },
         valence: { type: DataTypes.FLOAT },
         liveliness: { type: DataTypes.FLOAT },
         energy: { type: DataTypes.FLOAT },
