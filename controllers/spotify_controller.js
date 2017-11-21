@@ -8,13 +8,7 @@ var spotify = new Spotify({
 });
 
 
-function Song(song_name, valence, liveliness, energy, duration) {
-    this.song_name = song_name,
-        this.valence = valence,
-        this.liveliness = liveliness,
-        this.energy = energy,
-        this.duration = duration
-}
+var userSong = {}
 
 //Spotify Exercise
 var spotifyRouter = {
@@ -27,8 +21,9 @@ var spotifyRouter = {
 
             var firstResult = data.tracks.items[0];
             var songIdNum = firstResult.id;
-            var oaToken = 'BQCOOs17vXUnXORt6eocvABkyV6SmwTQjEb4ba42lAz005RlJbevTWvRPYbseO_ySIlphBV_Tc8XEBcvoNPkzPjmNyhoOcl5hsUR65DV_GbwE5vm_xnGlnDXJQ1YSNTr8uPOXBVjTUY';
-
+            var oaToken = 'BQCqJpKvo6BtJYIjOVcNbu7BXWlDrpsXmbcZel9LCMjjp8W01KvtKAM9q7zw6Nsr8F26Vud8ovuwsUSnY0QROP-PmvW613ta8-JfG7sw1ua7XQOZuEKjpJ07Zz-jos95FVeeby17nDI';
+            var albumName = data.tracks.items[0].album.name
+            var artist = data.tracks.items[0].album.artists[0].name
             var options = {
                 method: 'GET',
                 url: 'https://api.spotify.com/v1/audio-features/' + songIdNum,
@@ -42,34 +37,17 @@ var spotifyRouter = {
 
             request(options, function(error, response, body) {
                 if (error) throw new Error(error);
-
-                var song_name = firstResult.name
-                var valence = body.valence;
-                var liveness = body.liveness;
-                var energy = body.energy;
-                var songId = songId;
-                var duration_ms = firstResult.duration_ms;
-                console.log('FIRST Result', firstResult.duration_ms);
-                var songObject = new Song(
-                    song_name,
-                    valence,
-                    liveness,
-                    energy,
-                    songId,
-                    // TODO: FOR some reason, unable to log the duration in here
-                    duration_ms
-                )
-
-                console.log('SONG OBJECT', songObject);
-
-                //TODO: Are the console.logs below now redundant?
-                console.log("Valence: ", valence);
-                console.log("Liveness: ", liveness);
-                console.log("Energy: ", energy);
-                console.log("SongId: ", songIdNum);
-                console.log("Duration in ms: ", firstResult.duration_ms);
+                userSong.song_name = firstResult.name;
+                userSong.artist = artist;
+                userSong.album = albumName;
+                userSong.valence = body.valence;
+                userSong.liveness = body.liveness;
+                userSong.energy = body.energy;
+                userSong.songId = songIdNum;
+                userSong.duration_ms = firstResult.duration_ms;
+                console.log('songObject', userSong);
+                // artist album 
                 //Todo wrap callback into object - get help!
-                cb(body.valence);
             });
 
             // console.log("Initial call Result:", firstResult);
