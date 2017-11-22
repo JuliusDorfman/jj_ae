@@ -1,6 +1,4 @@
-// Burger models
-// The burger has a burger_name attribute of type DataTypes.String
-// and a devoured attribute that is false by default
+"use strict";
 
 module.exports = function(sequelize, DataTypes) {
     var Song = sequelize.define("Song", {
@@ -16,8 +14,9 @@ module.exports = function(sequelize, DataTypes) {
         classMethods: {
             associate: function(models) {
                 // associations can be defined here
+                Song.hasMany(models.Like, { onDelete: "cascade" });
             }
         }
     });
     return Song;
-}
+};
