@@ -11,9 +11,11 @@ var spotify = new Spotify({
     redirect_uri: keys.spotifyKeys.redirect_uri
 });
 
-var userSong = {};
+// var userSong = {};
 
 var spotifyProvider = {
+    userSong: {},
+
     token: null,
 
     getLogin: function(state) {
@@ -105,7 +107,7 @@ var spotifyProvider = {
     // }, //end refresh
 
     //@TODO write tests for this
-    spotifyThisSong: function(trackName = "Happy McFarren", cb, token) {
+    spotifyThisSong: function(trackName, cb, token) {
         spotify.search({ type: 'track', query: trackName, limit: 5 }, function(err, data) {
             if (err) {
                 return console.log('Error occurred: ' + err);
@@ -129,15 +131,15 @@ var spotifyProvider = {
 
             request(options, function(error, response, body) {
                 if (error) throw new Error(error);
-                userSong.song_name = firstResult.name;
-                userSong.artist = artist;
-                userSong.album = albumName;
-                userSong.valence = body.valence;
-                userSong.liveness = body.liveness;
-                userSong.energy = body.energy;
-                userSong.songId = songIdNum;
-                userSong.duration_ms = firstResult.duration_ms;
-                console.log('songObject', userSong);
+                spotifyProvider.userSong.song_name = firstResult.name;
+                spotifyProvider.userSong.artist = artist;
+                spotifyProvider.userSong.album = albumName;
+                spotifyProvider.userSong.valence = body.valence;
+                spotifyProvider.userSong.liveness = body.liveness;
+                spotifyProvider.userSong.energy = body.energy;
+                spotifyProvider.userSong.songId = songIdNum;
+                spotifyProvider.userSong.duration_ms = firstResult.duration_ms;
+                console.log('songObject', spotifyProvider.userSong);
             }); //end request Spotify info
 
             var trackInfo = "* Track Title: " + firstResult.name +

@@ -7,8 +7,9 @@ module.exports = function(sequelize, DataTypes) {
         artist: { type: DataTypes.STRING },
         album: {type: DataTypes.STRING },
         valence: { type: DataTypes.FLOAT },
-        liveliness: { type: DataTypes.FLOAT },
+        liveness: { type: DataTypes.FLOAT },
         energy: { type: DataTypes.FLOAT },
+        songId: { type: DataTypes.STRING },
         duration: { type: DataTypes.INTEGER }
     }, {
         classMethods: {

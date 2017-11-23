@@ -8,7 +8,8 @@ var querystring = require('querystring');
 
 // var spotifyRouter = require("./spotify_controller.js");
 var spotifyProvider = require("../providers/spotify_provider.js");
-var trackName = "Beat It";
+// var userSong = require("../providers/spotify_provider.js");
+var trackName = "Beat It!";
 
 var stateKey = 'spotify_auth_state';
 
@@ -131,14 +132,11 @@ app.get("/moodmusic", function(req, res) {
     // @TODO: get access_token from cookie
     spotifyProvider.token = req.cookies['access_token'];
 
-    spotifyProvider.spotifyThisSong(req.query.song_name, function(cb) {
-        console.log("Callback from spotify: ", cb);
-    }, spotifyProvider.token);
-
     db.Song.findAll()
         .then(function(dbBurger) {
-            console.log(dbBurger);
-            var hbsObject = { burger: dbBurger };
+            // console.log("Songs: ", dbBurger);
+            var hbsObject = { songs: dbBurger };
+            // console.log("Object: ", hbsObject);
             return res.render("index", hbsObject);
         });
 });
@@ -148,21 +146,35 @@ app.get("/recentsong", function(req, res) {
 });
 
 app.post("/moodmusic/create", function(req, res) {
-    db.Burger.create({
-            burger_name: req.body.burger_name
+    console.log("Hello: ", req.body.song_name);
+    spotifyProvider.spotifyThisSong(req.body.song_name, function(cb) {
+        console.log("Callback from spotify: ", cb);
+    }, spotifyProvider.token);
+
+    db.Song.create({
+            song_name: spotifyProvider.userSong.song_name,
+            artist: spotifyProvider.userSong.artist,
+            album: spotifyProvider.userSong.album,
+            valence: spotifyProvider.userSong.valence,
+            liveness: spotifyProvider.userSong.liveness,
+            energy: spotifyProvider.userSong.energy,
+            songId: spotifyProvider.userSong.songId,
+            duration: spotifyProvider.userSong.duration_ms
         })
         .then(function(dbBurger) {
-            console.log(dbBurger);
-            res.redirect("/");
+            // console.log("Create: ", dbBurger);
+            // res.redirect("/");
+            trackName = req.body.song_name;
+            res.redirect("/moodmusic");
         });
 });
 
 app.put("/moodmusic/update", function(req, res) {
-    db.Burger.update({
+    db.Song.update({
         devoured: true
     }, {
         where: {
-            id: req.body.burger_id
+            id: req.body.song_id
         }
     }).then(function(dbBurger) {
         res.redirect("/");
