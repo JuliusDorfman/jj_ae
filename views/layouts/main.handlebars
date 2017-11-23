@@ -10,38 +10,29 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
+    <script>$("#moodimage").prepend("check");</script>
 </head>
 
 <body>
-    <div class="container">
-        <!-- 
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="#" class="navbar-brand"><img src="/assets/images/moodmusic.png"></a>
-            </div> -->
-        <!--           <div class="navbar-collapse collapse">
-                 -->
-        <div id="myNavbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="navbar-header">
-                <div class="container">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#logInModal">Log In</button>
-                        </li>
-                        <li>
-                            <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#aboutModal">About</button>
-                        </li>
-                        <li>
-                            <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#statsModal">Stats</button>
-                        </li>
-                    </ul>
+    <div id="myNavbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand">moodmusic</a>
                 </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class data-toggle="modal" data-target="#logInModal" id="modalButtons">Log In</li>
+                    <li class data-toggle="modal" data-target="#aboutModal" id="modalButtons">About</li>
+                    <li>
+                        <li class data-toggle="modal" data-target="#statsModal" id="modalButtons">Stats</li>
+                </ul>
             </div>
         </div>
- 
+    </div>
     <div class="modal fade" id="logInModal" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">

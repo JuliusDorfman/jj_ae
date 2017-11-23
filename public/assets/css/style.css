@@ -5,10 +5,11 @@
 }
 
 body {
-    overflow-x: hidden;
-    font-family: 'Open Sans', sans-serif;
-    text-rendering: optimizeLegibility !important;
-    -webkit-font-smoothing: antialiased !important;
+    background: red; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(blue, pink); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(blue, pink); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(blue, pink); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(blue, pink); /* Standard syntax */
 }
 
 li {
@@ -91,7 +92,6 @@ p {
     width: 100%;
     padding: 30px 0 30px;
     margin-top: 50px;
-    background-color: green;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -450,7 +450,26 @@ p {
 }
 
 #headspace {
-    margin-top: 20px;
+    margin-top: 100px;
+}
+
+#modalButtons {
+    padding: 10px;
+}
+
+#logoHeader {
+   height:100%;
+   width: 100%;
+
+}
+
+.navbar-brand
+{
+    background-color: blue;
+}
+
+#longer {
+    max-width:100%;
 }
 
 
