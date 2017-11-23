@@ -32,6 +32,8 @@ app.use("/", routes);
 app.use("/update", routes);
 app.use("/create", routes);
 
+//@TODO add favicon
+
 // listen on port 3000
 let port = process.env.PORT || 3000;
 db.sequelize.sync().then(function() {
