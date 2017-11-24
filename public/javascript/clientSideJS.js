@@ -22,7 +22,7 @@ $(document).ready(function() {
         $("#appendHere").empty().append(iFrame);
         $("#moodImage").empty().append(moodImage);
         $("#currentSongValence").append(".80");
-        $("#someOtherStat").append("Some other shit");
-        $("#someOtherStat2").append("More shit");
+        $("#someOtherStat").append("Some other stuff");
+        $("#someOtherStat2").append("More stuff");
     });
 });
