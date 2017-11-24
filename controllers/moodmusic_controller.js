@@ -1,5 +1,4 @@
 var express = require("express");
-let passport = require('passport');
 var router = express.Router();
 var request = require('request');
 var db = require("../models/");
@@ -112,21 +111,6 @@ app.get('/callback', function(req, res) {
 // //     console.log('body:', body); // Print the HTML for the Google homepage.
 // //   });
 // // });
-
-// // app.get('/auth/spotify',
-// //   passport.authenticate('spotify'),
-// //   function(req, res){
-// //     // The request will be redirected to spotify for authentication, so this
-// //     // function will not be called.
-// //   });
-
-// // app.get('/auth/spotify/callback',
-// //   passport.authenticate('spotify', { failureRedirect: '/login' }),
-// //   function(req, res) {
-// //     console.log('req.params, req.query', req.params, req.query);
-// //     res.body = req.query;
-// //     res.render('authenticating', { spotifyAuth: req.query });
-// //   });
 
 app.get("/moodmusic", function(req, res) {
     // @TODO: get access_token from cookie

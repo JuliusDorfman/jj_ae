@@ -2,8 +2,6 @@ var keys = require("./config/keys.js"); // Grab data from keys.js
 let express = require("express");
 let bodyParser = require("body-parser");
 let methodOverride = require("method-override");
-let passport = require('passport');
-const SpotifyStrategy = require('passport-spotify').Strategy;
 // bring in the models
 let db = require("./models");
 

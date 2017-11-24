@@ -1,27 +1,31 @@
 {
-  "name": "node_what_todo",
+  "name": "moodmusic1",
   "version": "1.0.0",
-  "description": "-Node \r -Express \r -MySQL \r -Handlebars \r -Jquery",
+  "description": "While you are listening to Spotify, we detect your mood and provide you with data around it",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuliusDorfman/jj_ae.git"
+  },
+  "author": "Joe Holland, Julius Dorfman, Alan Davidson and Enrico Bernardo",
   "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.14.2",
-    "cookie-parser": "^1.4.3",
-    "express": "^4.13.3",
-    "express-handlebars": "^2.0.1",
-    "method-override": "^2.3.5",
-    "mysql": "^2.11.1",
-    "node-spotify-api": "^1.0.7",
-    "passport": "^0.4.0",
-    "passport-spotify": "^0.3.1",
-    "request": "^2.83.0",
-    "sequelize": "^3.23.4"
+  "bugs": {
+    "url": "https://github.com/JuliusDorfman/jj_ae/issues"
   },
-  "devDependencies": {
-    "handlebars-helper-css": "^0.1.0"
+  "homepage": "https://github.com/JuliusDorfman/jj_ae#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.10",
+    "mysql2": "^1.5.1",
+    "node-spotify-api": "^1.0.7",
+    "request": "^2.83.0",
+    "sequelize": "^4.22.15"
   }
 }
