@@ -4,7 +4,8 @@ let bodyParser = require("body-parser");
 let methodOverride = require("method-override");
 // bring in the models
 let db = require("./models");
-
+var path = require('path');
+var favicon = require('serve-favicon');
 let app = express();
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(__dirname + "/public"));
@@ -30,7 +31,7 @@ app.use("/", routes);
 app.use("/update", routes);
 app.use("/create", routes);
 
-//@TODO add favicon
+app.use(favicon(path.join(__dirname, 'public', '/assets/images/magic.png')));
 
 // listen on port 3000
 let port = process.env.PORT || 3000;

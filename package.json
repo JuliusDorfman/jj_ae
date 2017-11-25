@@ -25,7 +25,9 @@
     "method-override": "^2.3.10",
     "mysql2": "^1.5.1",
     "node-spotify-api": "^1.0.7",
+    "path": "^0.12.7",
     "request": "^2.83.0",
-    "sequelize": "^4.22.15"
+    "sequelize": "^4.22.15",
+    "serve-favicon": "^2.4.5"
   }
 }
