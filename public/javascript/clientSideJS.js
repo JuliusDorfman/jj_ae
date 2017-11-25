@@ -32,4 +32,11 @@ $(document).ready(function() {
     	// deleteAllCookies();
     	alert("You have been logged out.")
     });
+
+    console.log(trackName);
+});
+
+
+ $("button").click(function(){
+        
 });

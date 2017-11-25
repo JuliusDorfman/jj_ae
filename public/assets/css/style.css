@@ -463,7 +463,7 @@ p {
 }
 
 #headspace {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 #modalButtons {
@@ -498,12 +498,12 @@ img {
 }
 
 #sourceOne {
-    margin-bottom: 300px;
+    margin-bottom: 100px;
 }
 
 #songInfo {
 
-    margin-top: 20px;
+    margin-top: 10px;
     margin: 0 auto 0;
 }
 
