@@ -131,26 +131,26 @@ app.get("/recentsong", function(req, res) {
 
 app.post("/moodmusic/create", function(req, res) {
     console.log("Hello: ", req.body.song_name);
-    spotifyProvider.spotifyThisSong(req.body.song_name, function(cb) {
-        console.log("Callback from spotify: ", cb);
+    spotifyProvider.spotifyThisSong(req.body.song_name, function(userSong) {
+        console.log("Callback from spotify: ", userSong);
+        //create song
+        db.Song.create({
+                song_name: spotifyProvider.userSong.song_name,
+                artist: spotifyProvider.userSong.artist,
+                album: spotifyProvider.userSong.album,
+                valence: spotifyProvider.userSong.valence,
+                liveness: spotifyProvider.userSong.liveness,
+                energy: spotifyProvider.userSong.energy,
+                songId: spotifyProvider.userSong.songId,
+                duration: spotifyProvider.userSong.duration_ms
+            })
+            .then(function(dbBurger) {
+                // console.log("Create: ", dbBurger);
+                // res.redirect("/");
+                trackName = req.body.song_name;
+                res.redirect("/moodmusic");
+            });
     }, spotifyProvider.token);
-
-    db.Song.create({
-            song_name: spotifyProvider.userSong.song_name,
-            artist: spotifyProvider.userSong.artist,
-            album: spotifyProvider.userSong.album,
-            valence: spotifyProvider.userSong.valence,
-            liveness: spotifyProvider.userSong.liveness,
-            energy: spotifyProvider.userSong.energy,
-            songId: spotifyProvider.userSong.songId,
-            duration: spotifyProvider.userSong.duration_ms
-        })
-        .then(function(dbBurger) {
-            // console.log("Create: ", dbBurger);
-            // res.redirect("/");
-            trackName = req.body.song_name;
-            res.redirect("/moodmusic");
-        });
 });
 
 app.put("/moodmusic/update", function(req, res) {
