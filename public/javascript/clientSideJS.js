@@ -8,7 +8,9 @@ var iFrame = "<iframe id='song1' src= 'https://open.spotify.com/embed?uri=spotif
 var songInput = $("#songInput");
 
 //Image that is placed into holder on click. 
-var moodImage = "<img src=assets/images/magic.png>";
+var moodImage = "<img src=assets/images/newspinner.png>";
+
+var currentSongValence = "";
 
 
 
@@ -21,8 +23,13 @@ $(document).ready(function() {
     $("#source_one").click(function() {
         $("#appendHere").empty().append(iFrame);
         $("#moodImage").empty().append(moodImage);
-        $("#currentSongValence").append(".80");
-        $("#someOtherStat").append("Some other stuff");
-        $("#someOtherStat2").append("More stuff");
+        $("#currentSongValence").empty().append("Current Song Valence: " + currentSongValence );
+        $("#someOtherStat").append("Some other stuff:" + otherStat1);
+        $("#someOtherStat2").append("More stuff" + otherStat2);
+    });
+
+    $("#logOutButton").click(function() {
+    	// deleteAllCookies();
+    	alert("You have been logged out.")
     });
 });
