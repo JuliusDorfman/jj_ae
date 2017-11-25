@@ -15,6 +15,7 @@ body {
     /* For Firefox 3.6 to 15 */
     background: linear-gradient(blue, pink);
     /* Standard syntax */
+
 }
 
 li {
@@ -503,6 +504,7 @@ img {
 #songInfo {
 
     margin-top: 20px;
+    margin: 0 auto 0;
 }
 
 #logOutButton {
