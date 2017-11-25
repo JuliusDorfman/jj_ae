@@ -5,10 +5,9 @@ var db = require("../models/");
 var cookieParser = require('cookie-parser');
 var querystring = require('querystring');
 
-// var spotifyRouter = require("./spotify_controller.js");
 var spotifyProvider = require("../providers/spotify_provider.js");
-// var userSong = require("../providers/spotify_provider.js");
-var trackName = "Beat It!";
+var trackName = "Hello";
+var songId = "123";
 
 var stateKey = 'spotify_auth_state';
 
@@ -116,11 +115,15 @@ app.get("/moodmusic", function(req, res) {
     // @TODO: get access_token from cookie
     spotifyProvider.token = req.cookies['access_token'];
 
-    db.Song.findAll()
+    db.Song.findAll({
+            where: {
+                songId: songId
+            }
+        })
         .then(function(dbBurger) {
-            // console.log("Songs: ", dbBurger);
-            var hbsObject = { songs: dbBurger };
-            // console.log("Object: ", hbsObject);
+            // console.log("All Songs in DB: ", dbBurger);
+            var hbsObject = { song: dbBurger[0] };
+            // console.log("Object sent back to UI of all songs: ", hbsObject);
             return res.render("index", hbsObject);
         });
 });
@@ -130,7 +133,7 @@ app.get("/recentsong", function(req, res) {
 });
 
 app.post("/moodmusic/create", function(req, res) {
-    console.log("Hello: ", req.body.song_name);
+    console.log("Song Name: ", req.body.song_name);
     spotifyProvider.spotifyThisSong(req.body.song_name, function(userSong) {
         console.log("Callback from spotify: ", userSong);
         //create song
@@ -150,6 +153,7 @@ app.post("/moodmusic/create", function(req, res) {
                 // console.log("Create: ", dbBurger);
                 // res.redirect("/");
                 trackName = req.body.song_name;
+                songId = spotifyProvider.userSong.songId;
                 res.redirect("/moodmusic");
             });
     }, spotifyProvider.token);
