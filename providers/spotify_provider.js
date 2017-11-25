@@ -140,6 +140,7 @@ var spotifyProvider = {
                 spotifyProvider.userSong.songId = songIdNum;
                 spotifyProvider.userSong.duration_ms = firstResult.duration_ms;
                 console.log('songObject', spotifyProvider.userSong);
+                cb(spotifyProvider.userSong);
             }); //end request Spotify info
 
             var trackInfo = "* Track Title: " + firstResult.name +
