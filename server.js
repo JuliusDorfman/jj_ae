@@ -31,7 +31,7 @@ app.use("/", routes);
 app.use("/update", routes);
 app.use("/create", routes);
 
-app.use(favicon(path.join(__dirname, 'public', '/assets/images/magic.png')));
+app.use(favicon(path.join(__dirname, 'public', '/assets/images/favicon.ico')));
 
 // listen on port 3000
 let port = process.env.PORT || 3000;
