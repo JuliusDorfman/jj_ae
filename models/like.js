@@ -3,8 +3,8 @@
 module.exports = function(sequelize, DataTypes) {
     var Like = sequelize.define("Like", {
         id: { type: DataTypes.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true },
-        //songId: { type: DataTypes.INTEGER, allowNull: false, foreignKey: true },
-        //userId: { type: DataTypes.INTEGER, allowNull: false, foreignKey: true },
+        songId: { type: DataTypes.INTEGER, allowNull: false, foreignKey: true },
+        userId: { type: DataTypes.INTEGER, allowNull: false, foreignKey: true },
         duration: { type: DataTypes.INTEGER }
     }, {
         classMethods: {
