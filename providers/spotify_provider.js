@@ -1,6 +1,7 @@
 var keys = require("../config/keys.js"); // Grab data from keys.js
 var Spotify = require("node-spotify-api"); // node package that handles Spotify requests
 var request = require("request"); // node package for making http requests
+var db = require("../models/");
 // var express = require("express");
 var querystring = require('querystring');
 // var cookieParser = require('cookie-parser');
@@ -15,6 +16,7 @@ var spotify = new Spotify({
 
 var spotifyProvider = {
     userSong: {},
+    userObj: {},
 
     token: null,
 
@@ -62,6 +64,14 @@ var spotifyProvider = {
                     // Please add 'id', 'image', 'email' and 'name'
                     console.log("-------------");
                     console.log("User Data from Spotify:", body);
+                    db.User.create({
+                        display_name: body.display_name,
+                        email: body.email,
+                        id_name: body.id,
+                        image: body.images[0].url
+                    })
+                    // prevent duplicate insert - handle validation error
+                    .catch((err) => { console.log("User Error ", err.message) } )
                 });
 
                 this.token = access_token;

@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
         valence: { type: DataTypes.FLOAT },
         liveness: { type: DataTypes.FLOAT },
         energy: { type: DataTypes.FLOAT },
-        songId: { type: DataTypes.STRING },
+        songId: { type: DataTypes.STRING, unique: true, ignoreDuplicates: true },
         duration: { type: DataTypes.INTEGER }
     }, {
         classMethods: {

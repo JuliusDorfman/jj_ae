@@ -1,7 +1,7 @@
 {
   "development": {
 
-    "username": "enrico",
+    "username": "root",
     "password": "",
 
     "database": "burgers_db",
