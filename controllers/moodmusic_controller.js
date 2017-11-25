@@ -144,6 +144,8 @@ app.post("/moodmusic/create", function(req, res) {
                 songId: spotifyProvider.userSong.songId,
                 duration: spotifyProvider.userSong.duration_ms
             })
+            // prevent duplicate insert - handle validation error
+            .catch((err) => { console.log("Song Error ", err.message) } )
             .then(function(dbBurger) {
                 // console.log("Create: ", dbBurger);
                 // res.redirect("/");
