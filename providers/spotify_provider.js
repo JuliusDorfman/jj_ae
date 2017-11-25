@@ -58,7 +58,10 @@ var spotifyProvider = {
 
                 // use the access token to access the Spotify Web API
                 request.get(options, function(error, response, body) {
-                    console.log(body);
+                    // @TODO for Alan to take the body info and put into the DB
+                    // Please add 'id', 'image', 'email' and 'name'
+                    console.log("-------------");
+                    console.log("User Data from Spotify:", body);
                 });
 
                 this.token = access_token;
