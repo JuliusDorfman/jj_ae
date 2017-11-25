@@ -495,3 +495,20 @@ img {
     max-height: 100%;
     max-width: 100%;
 }
+
+#sourceOne {
+    margin-bottom: 300px;
+}
+
+#songInfo {
+
+    margin-top: 20px;
+}
+
+#logOutButton {
+    margin: 10px;
+}
+
+#enter_text {
+    margin-bottom: 20px;
+}
