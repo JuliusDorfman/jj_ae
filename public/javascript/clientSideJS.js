@@ -22,16 +22,27 @@ $(document).ready(function() {
         $("#someOtherStat").append("Some other stuff:" + otherStat1);
         $("#someOtherStat2").append("More stuff" + otherStat2);
     });
-
-    // var cookies = document.cookie.split(";");
-    // if (cookies.length > 0) {
-    //     $("#logOutButton").classlist.add('hide');
-    //     $("#enter_text").classlist.add('hide');
-    // }
-
-
-    $("#logOutButton").click(function() {
-  $.cookie("access_token", null, { path: '/' });
 });
 
-    });
+// var cookies = document.cookie.split(";");
+// if (cookies.length > 0) {
+//     $("#logOutButton").classlist.add('hide');
+//     $("#enter_text").classlist.add('hide');
+// }
+
+function deleteAllCookies(){
+   var cookies = document.cookie.split(";");
+   for (var i = 0; i < cookies.length; i++)
+     deleteCookie(cookies[i].split("=")[0]);
+}
+
+function setCookie(name, value, expirydays) {
+ var d = new Date();
+ d.setTime(d.getTime() + (expirydays*24*60*60*1000));
+ var expires = "expires="+ d.toUTCString();
+ document.cookie = name + "=" + value + "; " + expires;
+}
+
+function deleteCookie(name){
+  setCookie(name,"",-1);
+}
