@@ -29,5 +29,9 @@
     "request": "^2.83.0",
     "sequelize": "^4.22.15",
     "serve-favicon": "^2.4.5"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0"
   }
 }
