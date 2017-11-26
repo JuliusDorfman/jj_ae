@@ -70,8 +70,13 @@ var spotifyProvider = {
                         id_name: body.id,
                         image: body.images[0].url
                     })
-                    // prevent duplicate insert - handle validation error
                     .catch((err) => { console.log("User Error ", err.message) } )
+                    spotifyProvider.userObj = {display_name: body.display_name, email: body.email,
+                            id_name: body.id, image: body.images[0].url};
+                    console.log("userObj: ", spotifyProvider.userObj);
+
+                    // prevent duplicate insert - handle validation error
+
                 });
 
                 this.token = access_token;
@@ -152,6 +157,7 @@ var spotifyProvider = {
                 spotifyProvider.userSong.energy = body.energy;
                 spotifyProvider.userSong.songId = songIdNum;
                 spotifyProvider.userSong.duration_ms = firstResult.duration_ms;
+                spotifyProvider.userSong.current_user = spotifyProvider.userObj.display_name;
                 console.log('songObject', spotifyProvider.userSong);
                 cb(spotifyProvider.userSong);
             }); //end request Spotify info

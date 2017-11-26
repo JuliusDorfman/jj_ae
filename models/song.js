@@ -9,8 +9,10 @@ module.exports = function(sequelize, DataTypes) {
         valence: { type: DataTypes.FLOAT },
         liveness: { type: DataTypes.FLOAT },
         energy: { type: DataTypes.FLOAT },
-        songId: { type: DataTypes.STRING, unique: true, ignoreDuplicates: true },
-        duration: { type: DataTypes.INTEGER }
+        songId: { type: DataTypes.STRING },
+        //songId: { type: DataTypes.STRING, unique: true, ignoreDuplicates: true },
+        duration: { type: DataTypes.INTEGER },
+        current_user: {type: DataTypes.STRING }
     }, {
         classMethods: {
             associate: function(models) {

@@ -145,7 +145,8 @@ app.post("/moodmusic/create", function(req, res) {
                 liveness: spotifyProvider.userSong.liveness,
                 energy: spotifyProvider.userSong.energy,
                 songId: spotifyProvider.userSong.songId,
-                duration: spotifyProvider.userSong.duration_ms
+                duration: spotifyProvider.userSong.duration_ms,
+                current_user: spotifyProvider.userObj.display_name
             })
             // prevent duplicate insert - handle validation error
             .catch((err) => { console.log("Song Error: ", err.message) } )
