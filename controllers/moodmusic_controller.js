@@ -154,6 +154,15 @@ app.post("/moodmusic/create", function(req, res) {
                 // res.redirect("/");
                 trackName = req.body.song_name;
                 songId = spotifyProvider.userSong.songId;
+
+                // db.Like.create({
+                //     duration: spotifyProvider.userSong.duration_ms,
+                //     songId: spotifyProvider.userSong.songId,
+                //     userId: 1
+                //   })
+                //   // prevent duplicate insert - handle validation error
+                //   .catch((err) => { console.log("Song Error: ", err.message) } )
+
                 res.redirect("/moodmusic");
             });
     }, spotifyProvider.token);
