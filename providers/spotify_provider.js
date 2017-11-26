@@ -157,7 +157,7 @@ var spotifyProvider = {
                 spotifyProvider.userSong.energy = body.energy;
                 spotifyProvider.userSong.songId = songIdNum;
                 spotifyProvider.userSong.duration_ms = firstResult.duration_ms;
-                spotifyProvider.userSong.current_user = spotifyProvider.userObj.display_name;
+                spotifyProvider.userSong.current_user = spotifyProvider.userObj.id_name;
                 console.log('songObject', spotifyProvider.userSong);
                 cb(spotifyProvider.userSong);
             }); //end request Spotify info
