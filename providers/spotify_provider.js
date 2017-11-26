@@ -28,7 +28,8 @@ var spotifyProvider = {
                 client_id: keys.spotifyKeys.client_id,
                 scope: scope,
                 redirect_uri: keys.spotifyKeys.redirect_uri,
-                state: state
+                state: state,
+                show_dialog: true
             });
     }, // end getLogin
 
