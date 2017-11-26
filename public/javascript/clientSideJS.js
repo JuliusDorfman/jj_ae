@@ -11,8 +11,6 @@ var moodImage = "<img src=assets/images/newspinnerhappy.png>";
 
 var currentSongValence = "";
 
-var cookies;
-
 //This appends a hardcoded iframe with a set song.
 $(document).ready(function() {
     $("#happyButton").click(function() {
@@ -24,25 +22,39 @@ $(document).ready(function() {
     });
 });
 
+//This appends a hardcoded iframe with a set song.
+$(document).ready(function() {
+    $("#enter_text").keypress(function(e) {
+        if (e.which == 13) { //Enter key pressed
+            $("#appendHere").empty().append(iFrame);
+            $("#moodImage").empty().append(moodImage);
+            $("#currentSongValence").empty().append("Current Song Valence: " + currentSongValence);
+            $("#someOtherStat").append("Some other stuff:" + otherStat1);
+            $("#someOtherStat2").append("More stuff" + otherStat2);
+        };
+    })
+});
+
+
 // var cookies = document.cookie.split(";");
 // if (cookies.length > 0) {
 //     $("#logOutButton").classlist.add('hide');
 //     $("#enter_text").classlist.add('hide');
 // }
 
-function deleteAllCookies(){
-   var cookies = document.cookie.split(";");
-   for (var i = 0; i < cookies.length; i++)
-     deleteCookie(cookies[i].split("=")[0]);
+function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
+    for (var i = 0; i < cookies.length; i++)
+        deleteCookie(cookies[i].split("=")[0]);
 }
 
 function setCookie(name, value, expirydays) {
- var d = new Date();
- d.setTime(d.getTime() + (expirydays*24*60*60*1000));
- var expires = "expires="+ d.toUTCString();
- document.cookie = name + "=" + value + "; " + expires;
+    var d = new Date();
+    d.setTime(d.getTime() + (expirydays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = name + "=" + value + "; " + expires;
 }
 
-function deleteCookie(name){
-  setCookie(name,"",-1);
+function deleteCookie(name) {
+    setCookie(name, "", -1);
 }

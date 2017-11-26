@@ -154,7 +154,7 @@ app.post("/moodmusic/create", function(req, res) {
                 // res.redirect("/");
                 trackName = req.body.song_name;
                 songId = spotifyProvider.userSong.songId;
-                res.redirect("/moodmusic");
+                // res.redirect("/moodmusic");
             });
     }, spotifyProvider.token);
 });
