@@ -61,23 +61,22 @@ var spotifyProvider = {
 
                 // use the access token to access the Spotify Web API
                 request.get(options, function(error, response, body) {
-                    // @TODO for Alan to take the body info and put into the DB
-                    // Please add 'id', 'image', 'email' and 'name'
-                    console.log("-------------");
                     console.log("User Data from Spotify:", body);
                     db.User.create({
+                            display_name: body.display_name,
+                            email: body.email,
+                            id_name: body.id,
+                            image: body.images[0].url
+                        })
+                        // prevent duplicate insert - handle validation error
+                        .catch((err) => { console.log("User Error ", err.message) })
+                    spotifyProvider.userObj = {
                         display_name: body.display_name,
                         email: body.email,
                         id_name: body.id,
                         image: body.images[0].url
-                    })
-                    .catch((err) => { console.log("User Error ", err.message) } )
-                    spotifyProvider.userObj = {display_name: body.display_name, email: body.email,
-                            id_name: body.id, image: body.images[0].url};
+                    };
                     console.log("userObj: ", spotifyProvider.userObj);
-
-                    // prevent duplicate insert - handle validation error
-
                 });
 
                 this.token = access_token;

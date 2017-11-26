@@ -152,7 +152,6 @@ app.post("/moodmusic/create", function(req, res) {
             .catch((err) => { console.log("Song Error: ", err.message) } )
             .then(function(dbBurger) {
                 // console.log("Create: ", dbBurger);
-                // res.redirect("/");
                 trackName = req.body.song_name;
                 songId = spotifyProvider.userSong.songId;
                 // res.redirect("/moodmusic");
@@ -163,8 +162,7 @@ app.post("/moodmusic/create", function(req, res) {
                 //   })
                 //   // prevent duplicate insert - handle validation error
                 //   .catch((err) => { console.log("Song Error: ", err.message) } )
-
-                res.redirect("/moodmusic");
+                // res.redirect("/moodmusic");
             });
     }, spotifyProvider.token);
 });
