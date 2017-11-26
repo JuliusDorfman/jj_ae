@@ -32,7 +32,7 @@ app.use(express.static(__dirname + '/public'))
     .use(cookieParser());
 
 app.get('/', function(req, res) {
-    res.redirect('/login');
+    res.redirect('/moodmusic');
 });
 
 
@@ -148,7 +148,7 @@ app.post("/moodmusic/create", function(req, res) {
                 duration: spotifyProvider.userSong.duration_ms
             })
             // prevent duplicate insert - handle validation error
-            .catch((err) => { console.log("Song Error ", err.message) } )
+            .catch((err) => { console.log("Song Error: ", err.message) } )
             .then(function(dbBurger) {
                 // console.log("Create: ", dbBurger);
                 // res.redirect("/");
