@@ -157,6 +157,18 @@ app.get("/api/currentsong", function(req, res) {
         });
 });
 
+app.get("/api/currentsongs", function(req, res) {
+    db.Song.findAll({
+            where: {
+                current_user: idName,
+            }
+        })
+        .then(function(dbBurger) {
+            console.log("MM ----- Song values from the DB: ", dbBurger);
+            res.json(dbBurger);
+        });
+});
+
 app.post("/moodmusic/create", function(req, res) {
     console.log("MM ----- Song Name from spotify_provider.js: ", req.body.song_name);
     spotifyProvider.spotifyThisSong(req.body.song_name, function(userSong) {
