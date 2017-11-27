@@ -80,12 +80,13 @@
                 <div class="modal-body">
                     <div class="container-fluid">
                         <div class="row">
-                            <li id="averageSongValence">Average Song Valence: </li>{{song.valence}}
+                            <li id="currentSongName">Current Song Name:</li> "{{song.song_name}}"
                             <br>
-                            <li id="someAverageStat">Other Stat: </li>{{song.song_name}}
+                            <li id="averageSongValence">Current Song Valence:</li> {{song.valence}}
                             <br>
-                            <li id="someAverageStat2">Other Stat: </li>{{song.current_user}}
+                            <li id="currentSongDuration">Current Song Duration (in ms):</li> {{song.duration}}
                             <br>
+                            <li id="currentUserId">Logged In As:</li> {{song.current_user}}
                         </div>
                     </div>
                 </div>
