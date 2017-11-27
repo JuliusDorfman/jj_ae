@@ -1,13 +1,3 @@
-<head>
-    <title>moodmusic</title>
-    <meta charset="UTF-8">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="/assets/css/style.css">
-</head>
 <div id="header grad" class="header">
     <div class="container">
         <div class="row">
@@ -26,24 +16,26 @@
                 <div id="appendHere"></div>
                 <button type="button" class="btn btn-primary" id="happyButton">Or Click Here for Instant Happiness</button>
             </div>
-            <div class="row">
-                <div class="col-md-6 col-lg-6" id="moodImage"></div>
-                <div class="col-md-6 col-lg-6" id="songInfo">
-                    <ul>
-                        <li id="currentSongName">Current Song Name: </li>{{song.song_name}}
-                        <br>
-                        <li id="currentSongValence">Current Song Valence: </li>{{song.valence}}
-                        <br>
-                        <li id="currentSongDuration">Current Song Duration: </li>{{song.duration}}
-                        <br>
-                        <li id="currentUserId">Current User Id: </li>{{song.current_user}}
-                    </ul>
-                </div>
-            </div>
-            <hr>
-            <footer>
-                <p>&copy; JJA&amp;E</p>
-            </footer>
         </div>
+        <!-- Stats -->
+        <div class="row">
+            <div class="col-md-6 col-lg-6" id="moodImage"></div>
+            <div class="col-md-6 col-lg-6" id="songInfo">
+                <ul>
+                    <li id="currentSongName">Current Song Name: </li>{{song.song_name}}
+                    <br>
+                    <li id="currentSongValence">Current Song Valence: </li>{{song.valence}}
+                    <br>
+                    <li id="currentSongDuration">Current Song Duration: </li>{{song.duration}}
+                    <br>
+                    <li id="currentUserId">Current User Id: </li>{{song.current_user}}
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <footer>
+            <p>&copy; JJA&amp;E</p>
+        </footer>
     </div>
+</div>
 </div>

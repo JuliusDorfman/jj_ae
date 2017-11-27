@@ -2,9 +2,9 @@ var keys = require("../config/keys.js"); // Grab data from keys.js
 var Spotify = require("node-spotify-api"); // node package that handles Spotify requests
 var request = require("request"); // node package for making http requests
 var db = require("../models/");
-var express = require("express");
+// var express = require("express");
 var querystring = require('querystring');
-var cookieParser = require('cookie-parser');
+// var cookieParser = require('cookie-parser');
 
 var spotify = new Spotify({
     id: keys.spotifyKeys.client_id,
@@ -12,10 +12,10 @@ var spotify = new Spotify({
     redirect_uri: keys.spotifyKeys.redirect_uri
 });
 
-var app = express();
+// var app = express();
 
-app.use(express.static(__dirname + '/public'))
-    .use(cookieParser());
+// app.use(express.static(__dirname + '/public'))
+//     .use(cookieParser());
 
 // var userSong = {};
 
