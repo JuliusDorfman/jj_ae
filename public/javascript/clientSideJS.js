@@ -21,7 +21,7 @@ var userImg = "";
 $(document).ready(function() {
     $("#happyButton").click(function() {
         songID = "5fXRPS1tp70DbqsBZVyG4e"; //Happy by Rolling Stones
-        iFrame = "<iframe src='https://open.spotify.com/embed/track/" + songID + "' width='300' height='380' frameborder='0' allowtransparency='true'></iframe>";
+        iFrame = "<iframe id='song1' src='https://open.spotify.com/embed/track/" + songID + "' width='100%' height='100%' frameborder='0' allowtransparency='true'></iframe>";
         $("#appendHere").empty().append(iFrame);
         $("#moodImage")
             .empty().append("Happy moodImg: " + moodImage);
@@ -74,7 +74,6 @@ function deleteCookie(name) {
 
 // Function for retrieving users and getting them ready to be rendered to the page
 function getUser() {
-    console.log("hi user");
     $.get("/api/currentuser", function(data) {
         // var rowsToAdd = [];
         // for (var i = 0; i < data.length; i++) {
@@ -90,7 +89,6 @@ function getUser() {
 
 // Function for retrieving songs and getting them ready to be rendered to the page
 function getSong() {
-    console.log("hi song");
     $.get("/api/currentsong", function(data) {
         // var rowsToAdd = [];
         // for (var i = 0; i < data.length; i++) {
