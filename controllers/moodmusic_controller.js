@@ -121,9 +121,9 @@ app.get("/moodmusic", function(req, res) {
             }
         })
         .then(function(dbBurger) {
-            // console.log("All Songs in DB: ", dbBurger);
+            // console.log("MM ----- All Songs in DB: ", dbBurger);
             var hbsObject = { song: dbBurger[0] };
-            // console.log("Object sent back to UI of all songs: ", hbsObject);
+            // console.log("MM ----- Object sent back to UI of current song: ", hbsObject);
             return res.render("index", hbsObject);
         });
 });
@@ -133,9 +133,9 @@ app.get("/recentsong", function(req, res) {
 });
 
 app.post("/moodmusic/create", function(req, res) {
-    console.log("Song Name: ", req.body.song_name);
+    console.log("MM ----- Song Name from spotify_provider.js: ", req.body.song_name);
     spotifyProvider.spotifyThisSong(req.body.song_name, function(userSong) {
-        console.log("Callback from spotify: ", userSong);
+        console.log("MM ----- Response from spotify provider.js: ", userSong);
         //create song
         db.Song.create({
                 song_name: spotifyProvider.userSong.song_name,
@@ -162,21 +162,21 @@ app.post("/moodmusic/create", function(req, res) {
                 //   })
                 //   // prevent duplicate insert - handle validation error
                 //   .catch((err) => { console.log("Song Error: ", err.message) } )
-                // res.redirect("/moodmusic");
+                res.redirect("/moodmusic");
             });
     }, spotifyProvider.token);
 });
 
-app.put("/moodmusic/update", function(req, res) {
-    db.Song.update({
-        devoured: true
-    }, {
-        where: {
-            id: req.body.song_id
-        }
-    }).then(function(dbBurger) {
-        res.redirect("/");
-    });
-});
+// app.put("/moodmusic/update", function(req, res) {
+//     db.Song.update({
+//         devoured: true
+//     }, {
+//         where: {
+//             id: req.body.song_id
+//         }
+//     }).then(function(dbBurger) {
+//         res.redirect("/");
+//     });
+// });
 
 module.exports = app;

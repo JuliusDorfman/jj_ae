@@ -2,15 +2,20 @@ var keys = require("../config/keys.js"); // Grab data from keys.js
 var Spotify = require("node-spotify-api"); // node package that handles Spotify requests
 var request = require("request"); // node package for making http requests
 var db = require("../models/");
-// var express = require("express");
+var express = require("express");
 var querystring = require('querystring');
-// var cookieParser = require('cookie-parser');
+var cookieParser = require('cookie-parser');
 
 var spotify = new Spotify({
     id: keys.spotifyKeys.client_id,
     secret: keys.spotifyKeys.client_secret,
     redirect_uri: keys.spotifyKeys.redirect_uri
 });
+
+var app = express();
+
+app.use(express.static(__dirname + '/public'))
+    .use(cookieParser());
 
 // var userSong = {};
 
@@ -61,7 +66,7 @@ var spotifyProvider = {
 
                 // use the access token to access the Spotify Web API
                 request.get(options, function(error, response, body) {
-                    console.log("User Data from Spotify:", body);
+
                     db.User.create({
                             display_name: body.display_name,
                             email: body.email,
@@ -69,14 +74,16 @@ var spotifyProvider = {
                             image: body.images[0].url
                         })
                         // prevent duplicate insert - handle validation error
-                        .catch((err) => { console.log("User Error ", err.message) })
+                        .catch((err) => { console.log("User Error ", err.message) });
+
                     spotifyProvider.userObj = {
                         display_name: body.display_name,
                         email: body.email,
                         id_name: body.id,
                         image: body.images[0].url
                     };
-                    console.log("userObj: ", spotifyProvider.userObj);
+
+                    console.log("SP ---- Body of Spotify Auth ", body);
                 });
 
                 this.token = access_token;
@@ -158,7 +165,9 @@ var spotifyProvider = {
                 spotifyProvider.userSong.songId = songIdNum;
                 spotifyProvider.userSong.duration_ms = firstResult.duration_ms;
                 spotifyProvider.userSong.current_user = spotifyProvider.userObj.id_name;
-                console.log('songObject', spotifyProvider.userSong);
+                
+                console.log('SP ----- songObject', spotifyProvider.userSong);
+                
                 cb(spotifyProvider.userSong);
             }); //end request Spotify info
 
@@ -171,11 +180,12 @@ var spotifyProvider = {
             var dataArr = trackInfo.split("*");
 
             for (i = 0; i < dataArr.length; i++) {
-                console.log(dataArr[i].trim());
+                console.log("SP ----- trackInfo Array: ", dataArr[i].trim());
             }
         }); //end search
         return this;
     } //end spotifyThisSong
-}; //end function
+
+}; //end create object spotifyProvider 
 
 module.exports = spotifyProvider;
