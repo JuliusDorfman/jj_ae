@@ -24,36 +24,44 @@ $(document).ready(function() {
         iFrame = "<iframe id='song1' src='https://open.spotify.com/embed/track/" + songID + "' width='100%' height='100%' frameborder='0' allowtransparency='true'></iframe>";
         $("#appendHere").empty().append(iFrame);
         $("#moodImage")
-            .empty().append("Happy moodImg: " + moodImage);
-        $("#songInfo")
-            .empty().append("<ul><li><br>Happy song name: " + songName + "</li>")
-            .append("<li><br>Happy valence: " + currentSongValence + "</li>")
-            .append("<li><br>Happy song duration (ms): " + duration + "</li>")
-            .append("<li><br>Happy ID from user: " + userId + "</li>");
-        $("#userImg")
-            .empty().append("<img src=" + userImg + ">");
-    });
+            .empty().append(moodImage);
+        $("#songInfo").empty();
+        //     .empty().append("<ul><li><br>Happy song name: " + songName + "</li>")
+        //     .append("<li><br>Happy valence: " + currentSongValence + "</li>")
+        //     .append("<li><br>Happy song duration (ms): " + duration + "</li>")
+        //     .append("<li><br>Happy ID from user: " + userId + "</li>");
+        $("#userImg").empty();
+        //     .empty().append("<img src=" + userImg + ">");
+    }); //end click
 });
 
 //This appends a hardcoded iframe with a set song.
 $(document).ready(function() {
-    $("#enter_text").keypress(function(e) {
-        if (e.which == 13) { //Enter key pressed
-            // $("#appendHere").empty().append(iFrame);
-            // $("#moodImage").empty().append(moodImage);
-            // $("#currentSongValence").empty().append("Current Song Valence: " + currentSongValence);
-            // $("#someOtherStat").append("Some other stuff:" + data[0].id_name);
-            // $("#someOtherStat2").append("More stuff" + data[0].id_name);
-        };
-    })
+    $("#analyzeMe").click(function() {
+        iFrame = "<iframe id='song1' src='https://open.spotify.com/embed/track/" + songID + "' width='100%' height='100%' frameborder='0' allowtransparency='true'></iframe>";
+        $("#appendHere").empty().append(iFrame);
+        $("#moodImage")
+            .empty().append(moodImage);
+        $("#songInfo")
+            .empty().append("<li>Song name: " + songName + "</li><br>")
+            .append("<li>Valence: " + currentSongValence + "</li><br>")
+            .append("<li>Duration (ms): " + duration + "</li><br>")
+            .append("<li>User Id: " + userId + "</li>");
+        $("#userImg")
+            .empty().append("<img src=" + userImg + ">");
+    }) //end keypress
 });
 
+$('#navBar').click(function() {
+    $(this).hide();
+});
 
 // var cookies = document.cookie.split(";");
 // if (cookies.length > 0) {
-//     $("#logOutButton").classlist.add('hide');
+//     console.log("cookies: ", cookies);
+//     $("#logInButton").hide();
 //     $("#enter_text").classlist.add('hide');
-// }
+// };
 
 function deleteAllCookies() {
     var cookies = document.cookie.split(";");
