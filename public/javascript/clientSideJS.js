@@ -21,6 +21,7 @@ var userImg = "";
 $(document).ready(function() {
     $("#happyButton").click(function() {
         songID = "5fXRPS1tp70DbqsBZVyG4e"; //Happy by Rolling Stones
+        moodImage = "<img src=assets/images/newspinnerhappy.png>"; 
         iFrame = "<iframe id='song1' src='https://open.spotify.com/embed/track/" + songID + "' width='100%' height='100%' frameborder='0' allowtransparency='true'></iframe>";
         $("#appendHere").empty().append(iFrame);
         $("#moodImage")
@@ -35,9 +36,12 @@ $(document).ready(function() {
     }); //end click
 });
 
-//This appends a hardcoded iframe with a set song.
+//This appends an iframe with a song.
 $(document).ready(function() {
     $("#analyzeMe").click(function() {
+        moodImage = setMoodImage(currentSongValence);
+        console.log("currentSongValence: ", currentSongValence);
+        console.log("moodImage: ", moodImage);
         iFrame = "<iframe id='song1' src='https://open.spotify.com/embed/track/" + songID + "' width='100%' height='100%' frameborder='0' allowtransparency='true'></iframe>";
         $("#appendHere").empty().append(iFrame);
         $("#moodImage")
@@ -51,6 +55,17 @@ $(document).ready(function() {
             .empty().append("<img src=" + userImg + ">");
     }) //end keypress
 });
+
+function setMoodImage(value) {
+    if (currentSongValence <=0.45) {
+        moodImage = "<img src=assets/images/newspinnersad.png>";
+    } else if (currentSongValence >=0.55) {
+        moodImage = "<img src=assets/images/newspinnerhappy.png>";
+    } else {
+        moodImage = "<img src=assets/images/newspinnerneutral.png>";
+    }
+    return moodImage;
+}
 
 $('#navBar').click(function() {
     $(this).hide();
@@ -145,7 +160,30 @@ function getSong() {
     });
 }
 
+function createSongRow() {
+
+}
+
+// Function for retrieving songs and getting them ready to be rendered to the page
+function getSongs() {
+    $.get("/api/currentsongs", function(data) {
+        var rowsToAdd = [];
+        for (var i = 0; i < data.length; i++) {
+             //rowsToAdd.push(createSongRow(data[i]));
+             rowsToAdd.push(data[i]);
+        }
+        // renderAuthorList(rowsToAdd);
+        // nameInput.val("");
+        console.log("Songs: ", data);
+        // currentSongValence = data[0].valence;
+        // songID = data[0].songId;
+        // songName = data[0].song_name;
+        // duration = data[0].duration;
+    });
+}
+
 // Main
 // Getting the intiial list of Authors
 getUser();
 getSong();
+getSongs();
