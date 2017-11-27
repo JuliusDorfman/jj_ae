@@ -8,6 +8,7 @@ var querystring = require('querystring');
 var spotifyProvider = require("../providers/spotify_provider.js");
 var trackName = "Hello";
 var songId = "123";
+var idName = "aaa";
 
 var stateKey = 'spotify_auth_state';
 
@@ -121,15 +122,39 @@ app.get("/moodmusic", function(req, res) {
             }
         })
         .then(function(dbBurger) {
-            // console.log("MM ----- All Songs in DB: ", dbBurger);
+            console.log("MM ----- All Songs in DB: ", dbBurger[0]);
             var hbsObject = { song: dbBurger[0] };
-            // console.log("MM ----- Object sent back to UI of current song: ", hbsObject);
+            console.log("MM ----- Object sent back to UI of current song: ", hbsObject);
             return res.render("index", hbsObject);
         });
 });
 
 app.get("/recentsong", function(req, res) {
     res.render("recentsong");
+});
+
+app.get("/api/currentuser", function(req, res) {
+    db.User.findAll({
+            where: {
+                id_name: idName
+            }
+        })
+        .then(function(dbBurger) {
+            console.log("MM ----- User values from the DB: ", dbBurger);
+            res.json(dbBurger);
+        });
+});
+
+app.get("/api/currentsong", function(req, res) {
+    db.Song.findAll({
+            where: {
+                songId: songId,
+            }
+        })
+        .then(function(dbBurger) {
+            console.log("MM ----- Song values from the DB: ", dbBurger);
+            res.json(dbBurger);
+        });
 });
 
 app.post("/moodmusic/create", function(req, res) {
@@ -149,11 +174,12 @@ app.post("/moodmusic/create", function(req, res) {
                 current_user: spotifyProvider.userObj.id_name
             })
             // prevent duplicate insert - handle validation error
-            .catch((err) => { console.log("Song Error: ", err.message) } )
+            .catch((err) => { console.log("Song Error: ", err.message) })
             .then(function(dbBurger) {
-                // console.log("Create: ", dbBurger);
+                // console.log("Hello Create ***********: ", spotifyProvider.userObj);
                 trackName = req.body.song_name;
                 songId = spotifyProvider.userSong.songId;
+                idName = spotifyProvider.userObj.id_name;
                 // res.redirect("/moodmusic");
                 // db.Like.create({
                 //     duration: spotifyProvider.userSong.duration_ms,
