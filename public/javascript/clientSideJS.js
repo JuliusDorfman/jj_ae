@@ -58,3 +58,37 @@ function setCookie(name, value, expirydays) {
 function deleteCookie(name) {
     setCookie(name, "", -1);
 }
+
+// name parameters below are 'strings'
+function deleteAllSession() {
+    // Clear sessionStorage
+    sessionStorage.clear();
+    var cookies = document.cookie.split(";");
+}
+
+function setSession(name, value) {
+    sessionStorage.setItem(name, value);
+}
+
+function deleteSession(name) {
+    sessionStorage.removeItem(name);
+}
+
+function logOut() {
+      
+}
+
+function logIn() {
+    
+}
+
+function toggleLogIn() {
+    if (sessionStorage.getItem("loggedIn") === true) {
+        sessionStorage.setItem("loggedIn", false);
+        console.log("Logged Out");
+    } else{
+        sessionStorage.setItem("loggedIn", true);
+        console.log("Logged In");
+    }   
+}
+
