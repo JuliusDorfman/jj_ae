@@ -21,7 +21,8 @@ body {
 li {
 
     list-style: none;
-    display: inline-block
+    display: inline-block;
+    font-size: 20px;
 }
 
 a {

@@ -36,7 +36,7 @@ $(document).ready(function() {
     }); //end click
 });
 
-//This appends an iframe with a song.
+//This appends an ifrazme with a song.
 $(document).ready(function() {
     $("#analyzeMe").click(function() {
         moodImage = setMoodImage(currentSongValence);
@@ -48,9 +48,9 @@ $(document).ready(function() {
             .empty().append(moodImage);
         $("#songInfo")
             .empty().append("<li>Song name: " + songName + "</li><br>")
-            .append("<li>Valence: " + currentSongValence + "</li><br>")
-            .append("<li>Duration (ms): " + duration + "</li><br>")
-            .append("<li>User Id: " + userId + "</li>");
+            .append("<li>Happy Factor: " + currentSongValence + "</li><br>");
+            // .append("<li>Duration (ms): " + duration + "</li><br>")
+            // .append("<li>User Id: " + userId + "</li>");
         $("#userImg")
             .empty().append("<img src=" + userImg + ">");
     }) //end keypress
