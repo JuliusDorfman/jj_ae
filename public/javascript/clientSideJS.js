@@ -41,6 +41,8 @@ $(document).ready(function() {
 //This appends an iframe with a song.
 $(document).ready(function() {
     $("#analyzeMe").click(function() {
+        var lodashDuration = _.divide(duration, 1000);
+        lodashDuration = _.floor(lodashDuration);
         moodImage = setMoodImage(currentSongValence);
         console.log("currentSongValence: ", currentSongValence);
         console.log("moodImage: ", moodImage);
@@ -50,8 +52,8 @@ $(document).ready(function() {
             .empty().append(moodImage);
         $("#songInfo")
             .empty().append("<li>Song name: " + songName + "</li><br>")
-            .append("<li>Mood Factor: " + currentSongValence + "</li><br>");
-            // .append("<li>Duration (ms): " + duration + "</li><br>")
+            .append("<li>Mood Factor: " + currentSongValence + "</li><br>")
+            .append("<li>Duration: " + lodashDuration + " seconds</li><br>");
             // .append("<li>User Id: " + userId + "</li>");
         $("#userImg")
             .empty().append("<img src=" + userImg + ">");
