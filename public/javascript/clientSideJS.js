@@ -16,6 +16,8 @@ var duration = "";
 var userId = "";
 var userImg = "";
 
+var songList = [];
+
 
 //This appends a hardcoded iframe with a set song.
 $(document).ready(function() {
@@ -179,6 +181,7 @@ function getSongs() {
         // songID = data[0].songId;
         // songName = data[0].song_name;
         // duration = data[0].duration;
+        songList = data;
     });
 }
 
