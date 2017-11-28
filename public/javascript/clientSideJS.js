@@ -33,8 +33,8 @@ $(document).ready(function() {
         //     .append("<li><br>Happy valence: " + currentSongValence + "</li>")
         //     .append("<li><br>Happy song duration (ms): " + duration + "</li>")
         //     .append("<li><br>Happy ID from user: " + userId + "</li>");
-        $("#userImg").empty();
-        //     .empty().append("<img src=" + userImg + ">");
+        $("#userImg")
+            .empty().append("<img src=" + userImg + ">");
     }); //end click
 });
 
