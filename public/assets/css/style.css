@@ -1,5 +1,4 @@
 * {
-
     padding: 0;
     margin: 0;
 }
@@ -15,25 +14,20 @@ body {
     /* For Firefox 3.6 to 15 */
     background: linear-gradient(blue, pink);
     /* Standard syntax */
-
 }
 
 li {
-
     list-style: none;
     display: inline-block;
-    font-size: 20px;
 }
 
 a {
-
     text-decoration: none;
     transition: all 500ms ease-in-out;
 }
 
 a:hover,
 a:active {
-
     text-decoration: none;
 }
 
@@ -51,25 +45,20 @@ p {
 }
 
 .btn {
-
     transition: all 300ms ease-in-out;
     font-weight: 500 !important;
     text-transform: uppercase;
 }
 
 .btn:hover {
-
     background-color: #ededed !important;
     color: #3c3c3c !important;
     border: 1px solid #fff !important;
 }
 
-
-
 /*NAVIGATION*/
 
 .navbar {
-
     background-color: #222222 !important;
     text-transform: uppercase;
     font-family: 'PT Sans Narrow', Arial, sans-serif;
@@ -90,12 +79,8 @@ p {
 }
 */
 
-
-
 /*HEADER*/
-
 .header {
-
     height: 600px;
     width: 100%;
     padding: 30px 0 30px;
@@ -115,7 +100,6 @@ p {
 }*/
 
 .header h1 {
-
     font-size: 40px;
     font-weight: 700;
     padding-top: 30px;
@@ -129,48 +113,40 @@ p {
 }
 
 .header .btn {
-
     border-radius: 0;
     margin: 40px 20px;
 }
 
-
 @media(max-width:768px) {
-
     .header {
-
         padding: 30px;
         height: 750px;
     }
 
     .header img {
-
         width: 90%;
         height: 300px;
         margin: 20px 0 0 20px;
     }
 
     .header .btn {
-
         font-size: 10px;
         margin-left: 20px;
     }
 
     .header h1 {
-
         font-size: 20px;
     }
 
     .header p {
-
         font-size: 10px;
     }
 }
 
+
 /*FOOTER*/
 
 .footer {
-
     padding: 30px;
     color: #cccccc;
     background-color: #222222;
@@ -178,7 +154,6 @@ p {
 
 
 .footer .social {
-
     font-size: 20px;
     height: 30px;
     width: 30px;
@@ -189,9 +164,7 @@ p {
     margin-right: 5px;
 }
 
-
 .footer input {
-
     height: 40px;
     width: 160px;
     padding: 5px;
@@ -201,7 +174,6 @@ p {
 }
 
 .footer .btn {
-
     padding: 10px 5px 10px;
     margin: -3px 0 0 5px;
 }
@@ -227,16 +199,12 @@ p {
     max-width: 100%;
 }
 
-
-
 #moodImage {
     height: 200px;
     width: 300px;
 }
 
-
 img {
-
     max-height: 100%;
     max-width: 100%;
 }
@@ -246,9 +214,9 @@ img {
 }
 
 #songInfo {
-
     margin-top: 10px;
     margin: 0 auto 0;
+    font-size: 20px;
 }
 
 #logOutButton {
@@ -266,10 +234,8 @@ img {
 #navBar {
     color: black;
     padding: 5px;
-
 }
 
 .hide {
     display: none;
 }
-
